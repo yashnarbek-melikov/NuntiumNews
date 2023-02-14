@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Nuntium News</string>
+    <string name="saved_empty">You have not saved any articles yet. Start reading and bookmarking them now</string>
+    <string name="discover">Discover things of this world</string>
+    <string name="recommend">Recommended for you</string>
+    <string name="category">Thousands of articles in each category</string>
+    <string name="bookmark">Saved articles to the library</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="boarding_title">Fast and reliable</string>
+
+    <string name="page1_desc_1">All news in one place, be the</string>
+    <string name="page1_desc_2">first to know last news</string>
+    <string name="page2_desc_1">Multifunctional app with</string>
+    <string name="page2_desc_2">support for 32 languages</string>
+    <string name="page3_desc_1">Fast news only here, already</string>
+    <string name="page3_desc_2">new news blinked.</string>
+
+    <string name="welcome_title1">All the news of the world in</string>
+    <string name="welcome_title2">one app. Enjoy it</string>
+</resources>

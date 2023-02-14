@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.nuntiumnews.ui.after.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.nuntiumnews.ui.before.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_splashFragment_to_homeNavigationFragment"
+            app:destination="@id/homeNavigationFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.nuntiumnews.ui.before.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_welcomeScreenFragment"
+            app:destination="@id/welcomeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeScreenFragment"
+        android:name="com.example.nuntiumnews.ui.before.WelcomeScreenFragment"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen" >
+        <action
+            android:id="@+id/action_welcomeScreenFragment_to_selectTopicFragment"
+            app:destination="@id/selectTopicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectTopicFragment"
+        android:name="com.example.nuntiumnews.ui.before.SelectTopicFragment"
+        android:label="fragment_select_topic"
+        tools:layout="@layout/fragment_select_topic" >
+        <action
+            android:id="@+id/action_selectTopicFragment_to_homeNavigationFragment"
+            app:destination="@id/homeNavigationFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.nuntiumnews.ui.after.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.example.nuntiumnews.ui.after.BookmarkFragment"
+        android:label="fragment_bookmark"
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_bookmarkFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.nuntiumnews.ui.after.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+    </fragment>
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.nuntiumnews.ui.after.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.nuntiumnews.ui.after.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/homeNavigationFragment"
+        android:name="com.example.nuntiumnews.ui.after.HomeNavigationFragment"
+        android:label="fragment_home_navigation"
+        tools:layout="@layout/fragment_home_navigation" >
+        <action
+            android:id="@+id/action_homeNavigationFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
+        <action
+            android:id="@+id/action_homeNavigationFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeViewPagerFragment"
+        android:name="com.example.nuntiumnews.ui.after.HomeViewPagerFragment"
+        android:label="fragment_home_view_pager"
+        tools:layout="@layout/fragment_home_view_pager" />
+</navigation>

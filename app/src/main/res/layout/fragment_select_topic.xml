@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.before.SelectTopicFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:fontFamily="@font/sf_pro_text"
+        android:text="Select your favorite topics"
+        android:textColor="#333647"
+        android:textSize="@dimen/_18ssp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/topic_title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:fontFamily="@font/sf_pro_text"
+        android:text="Select some of your favorite topics to let us"
+        android:textColor="#7C82A1"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/topic_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:fontFamily="@font/sf_pro_text"
+        android:text="suggest better news for you."
+        android:textColor="#7C82A1"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topic_title1" />
+
+    <LinearLayout
+        android:id="@+id/choose_linear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_360sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/topic_title2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category1"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/sport_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🏈   Sports"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category2"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/life_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🌞   Life"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category3"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/animals_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🐻   Animals"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category4"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/food_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🍔   Food"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category5"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/history_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="📜   History"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category6"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/politic_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="⚖️   Politics"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category7"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/gaming_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🎮   Gaming"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category8"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/nature_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🌴   Nature"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category9"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/art_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="🎨   Art"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/category10"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:elevation="0dp"
+                android:foreground="?selectableItemBackground"
+                app:cardBackgroundColor="#F3F4F6"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
+
+                <TextView
+                    android:id="@+id/fashion_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="center"
+                    android:text="👗   Fashion"
+                    android:textColor="#666C8E"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/buttonNext"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:elevation="0dp"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="#475AD7"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choose_linear">
+
+        <TextView
+            android:id="@+id/nextTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/sf_pro_text"
+            android:gravity="center"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

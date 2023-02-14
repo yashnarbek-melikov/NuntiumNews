@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.before.WelcomeScreenFragment">
+
+    <ImageView
+        android:id="@+id/welcome_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22"
+        android:src="@drawable/illustration" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_text"
+        android:textSize="@dimen/_22ssp"
+        android:text="Nuntium"
+        app:layout_constraintTop_toBottomOf="@id/welcome_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/desc1"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="#7C82A1"
+        android:text="@string/welcome_title1"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/desc2"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/desc1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="#7C82A1"
+        android:text="@string/welcome_title2"
+        android:textAlignment="center"/>
+
+    <androidx.cardview.widget.CardView
+        android:foreground="?selectableItemBackground"
+        android:id="@+id/buttonNext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:elevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="#475AD7"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_45sdp" >
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/nextTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
+            android:text="Get Started"
+            android:fontFamily="@font/sf_pro_text"/>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
