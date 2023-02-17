@@ -98,8 +98,8 @@ class LanguageFragment : Fragment(), View.OnClickListener {
     }
 
     private fun switchOffOthers(cardView: CardView, textView: TextView, imageView: ImageView) {
-        val cardColor = ContextCompat.getColor(requireContext(), R.color.card_color)
-        val textColor = ContextCompat.getColor(requireContext(), R.color.text_color_in_card)
+        val cardColor = ContextCompat.getColor(requireContext(), R.color.search_card_color)
+        val textColor = ContextCompat.getColor(requireContext(), R.color.card_text_color)
 
         cardView.setCardBackgroundColor(cardColor)
         textView.setTextColor(textColor)

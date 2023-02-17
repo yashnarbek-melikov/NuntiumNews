@@ -147,8 +147,8 @@ class SelectTopicFragment : Fragment(), View.OnClickListener {
         textView: TextView
     ) {
         val nuntiumColor = ContextCompat.getColor(requireContext(), R.color.nuntium_color)
-        val cardColor = ContextCompat.getColor(requireContext(), R.color.card_color)
-        val textColor = ContextCompat.getColor(requireContext(), R.color.text_color_in_card)
+        val cardColor = ContextCompat.getColor(requireContext(), R.color.search_card_color)
+        val textColor = ContextCompat.getColor(requireContext(), R.color.card_text_color)
         val textWhite = ContextCompat.getColor(requireContext(), R.color.white)
 
         if (mySharedPreference?.getPreferences(key) != null) {
@@ -173,8 +173,8 @@ class SelectTopicFragment : Fragment(), View.OnClickListener {
     ) {
 
         val nuntiumColor = ContextCompat.getColor(requireContext(), R.color.nuntium_color)
-        val cardColor = ContextCompat.getColor(requireContext(), R.color.card_color)
-        val textColor = ContextCompat.getColor(requireContext(), R.color.text_color_in_card)
+        val cardColor = ContextCompat.getColor(requireContext(), R.color.search_card_color)
+        val textColor = ContextCompat.getColor(requireContext(), R.color.card_text_color)
         val textWhite = ContextCompat.getColor(requireContext(), R.color.white)
 
         if (mySharedPreference?.getPreferences(key) != null) {

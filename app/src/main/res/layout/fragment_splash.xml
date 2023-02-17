@@ -17,7 +17,7 @@
     <TextView
         android:textStyle="bold"
         android:fontFamily="@font/sf_pro_text"
-        android:textColor="@color/white"
+        android:textColor="@color/splash_color"
         android:textSize="@dimen/_18ssp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

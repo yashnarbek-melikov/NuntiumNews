@@ -16,7 +16,7 @@
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
         android:text="Select your favorite topics"
-        android:textColor="#333647"
+        android:textColor="@color/title_text_color"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
         android:text="Select some of your favorite topics to let us"
-        android:textColor="#7C82A1"
+        android:textColor="@color/mini_text_color"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -45,7 +45,7 @@
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
         android:text="suggest better news for you."
-        android:textColor="#7C82A1"
+        android:textColor="@color/mini_text_color"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topic_title1" />
@@ -73,7 +73,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -86,7 +86,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🏈   Sports"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -100,7 +100,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -113,7 +113,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🌞   Life"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -127,7 +127,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -140,7 +140,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🐻   Animals"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -154,7 +154,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -167,7 +167,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🍔   Food"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -181,7 +181,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -194,7 +194,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="📜   History"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -216,7 +216,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -229,7 +229,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="⚖️   Politics"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -243,7 +243,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -256,7 +256,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🎮   Gaming"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -270,7 +270,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -283,7 +283,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🌴   Nature"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -297,7 +297,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -310,7 +310,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🎨   Art"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -324,7 +324,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="0dp"
                 android:foreground="?selectableItemBackground"
-                app:cardBackgroundColor="#F3F4F6"
+                app:cardBackgroundColor="@color/search_card_color"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -337,7 +337,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="👗   Fashion"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -353,7 +353,7 @@
         android:layout_height="@dimen/_45sdp"
         android:elevation="0dp"
         android:foreground="?selectableItemBackground"
-        app:cardBackgroundColor="#475AD7"
+        app:cardBackgroundColor="@color/nuntium_color"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp"

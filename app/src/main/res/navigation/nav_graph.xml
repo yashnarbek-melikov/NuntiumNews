@@ -102,9 +102,4 @@
             android:id="@+id/action_homeNavigationFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/homeViewPagerFragment"
-        android:name="com.example.nuntiumnews.ui.after.HomeViewPagerFragment"
-        android:label="fragment_home_view_pager"
-        tools:layout="@layout/fragment_home_view_pager" />
 </navigation>

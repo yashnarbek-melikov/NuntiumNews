@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:id="@+id/swipe"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.after.HomeFragment">
 
     <me.didik.component.StickyNestedScrollView
@@ -26,7 +28,7 @@
                 android:layout_marginRight="@dimen/_16sdp"
                 android:fontFamily="@font/sf_pro_text"
                 android:text="Browse"
-                android:textColor="#333647"
+                android:textColor="@color/title_text_color"
                 android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -41,7 +43,7 @@
                 android:layout_marginRight="@dimen/_16sdp"
                 android:fontFamily="@font/sf_pro_text"
                 android:text="Discover things of this world"
-                android:textColor="#7C82A1"
+                android:textColor="@color/mini_text_color"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -53,6 +55,7 @@
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_24sdp"
                 android:background="@drawable/search_layout_back"
+                app:layout_constraintBottom_toTopOf="@id/linear_tab"
                 app:layout_constraintTop_toBottomOf="@id/topic_title1">
 
                 <ImageView
@@ -78,8 +81,8 @@
                     android:imeOptions="actionSearch"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="#7C82A1"
-                    android:textColorHint="#7C82A1"
+                    android:textColor="@color/mini_text_color"
+                    android:textColorHint="@color/mini_text_color"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/search_image"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -96,38 +99,95 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.google.android.material.tabs.TabLayout
-                android:layout_marginHorizontal="@dimen/_7sdp"
-                android:id="@+id/tab_layout"
+            <LinearLayout
+                android:id="@+id/linear_tab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:layout_marginBottom="@dimen/_4sdp"
                 android:background="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/search_constraint"
-                app:tabIndicatorHeight="0dp"
-                app:tabMode="scrollable"
-                app:tabRippleColor="@null" />
+                android:tag="sticky"
+                app:layout_constraintTop_toBottomOf="@id/search_constraint">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_13sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@color/white"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMode="scrollable"
+                    app:tabPaddingEnd="0dp"
+                    app:tabRippleColor="@null" />
+            </LinearLayout>
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/id1"
-                app:layout_constraintTop_toBottomOf="@id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintTop_toBottomOf="@id/linear_tab">
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/error_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:fontFamily="@font/sf_pro_text"
+                        android:gravity="center"
+                        android:text="no internet connection"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
                     <androidx.recyclerview.widget.RecyclerView
-                        android:nestedScrollingEnabled="false"
                         android:id="@+id/recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
                         android:focusable="true"
+                        android:orientation="vertical"
                         android:overScrollMode="never"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:listitem="@layout/item_view_pager" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:animateLayoutChanges="true"
+                        android:animationCache="true"
+                        android:focusable="true"
+                        android:overScrollMode="never"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:shimmer_repeat_mode="restart"
+                        app:shimmer_shape="linear">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <!--below we are displaying multiple
+                                shimmer layouts using include
+                                to show them in list format-->
+                            <include layout="@layout/shimmer_home_recycler_layout" />
+
+                            <include layout="@layout/shimmer_home_recycler_layout" />
+
+                            <include layout="@layout/shimmer_home_recycler_layout" />
+
+                            <include layout="@layout/shimmer_home_recycler_layout" />
+
+                            <include layout="@layout/shimmer_home_recycler_layout" />
+
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
                 </FrameLayout>
 
             </androidx.core.widget.NestedScrollView>
@@ -136,4 +196,4 @@
 
     </me.didik.component.StickyNestedScrollView>
 
-</LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

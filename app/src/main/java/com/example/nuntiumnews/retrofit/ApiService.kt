@@ -10,8 +10,7 @@ interface ApiService {
     @GET("everything")
     suspend fun getListData(
         @Query("q") category: String,
-        @Query("page") page: Int = 1,
-        @Query("pageSize") pageSize: Int = 30,
-        @Query("apiKey") apiKey: String = "30d052d3e20544fca54c914168ea3da3"
+        @Query("pageSize") pageSize: Int = 20,
+        @Query("apiKey") apiKey: String = "41e12e0982d74e94b0f889dcf7b4362c"
     ): Response<Headlines>
 }

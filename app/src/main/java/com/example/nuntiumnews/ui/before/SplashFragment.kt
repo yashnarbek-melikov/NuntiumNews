@@ -9,11 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.nuntiumnews.R
 import com.example.nuntiumnews.databinding.FragmentSplashBinding
+import com.example.nuntiumnews.ui.after.HomeNavigationFragment
 import com.example.nuntiumnews.utils.MySharedPreference
+import kotlinx.coroutines.delay
 
 class SplashFragment : Fragment() {
 
@@ -35,14 +38,16 @@ class SplashFragment : Fragment() {
         activity?.window?.statusBarColor =
             ContextCompat.getColor(requireContext(), R.color.nuntium_color)
 
-        handler!!.postDelayed({
+        lifecycleScope.launchWhenStarted {
+            delay(2000)
             val all = requireContext().getSharedPreferences("have", Context.MODE_PRIVATE).all
             if (all.values.isNotEmpty()) {
                 findNavController().navigate(R.id.action_splashFragment_to_homeNavigationFragment)
             } else {
                 findNavController().navigate(R.id.action_splashFragment_to_onBoardingFragment)
             }
-        }, 2000)
+        }
+
         return binding.root
     }
 

@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nuntiumnews.databinding.ItemViewPagerBinding
 import com.example.nuntiumnews.models.newsModel.Article
 import com.example.nuntiumnews.utils.setImage
+import com.example.nuntiumnews.utils.textToDate
 
-class HomeRecyclerAdapter(val listener: OnClickListener): ListAdapter<Article, HomeRecyclerAdapter.Vh>(MyDiffUtil()) {
+class HomeRecyclerAdapter(var list: ArrayList<Article>, val listener: OnClickListener): RecyclerView.Adapter<HomeRecyclerAdapter.Vh>() {
 
     inner class Vh(var itemViewPagerBinding: ItemViewPagerBinding) :
         RecyclerView.ViewHolder(itemViewPagerBinding.root) {
@@ -18,6 +19,7 @@ class HomeRecyclerAdapter(val listener: OnClickListener): ListAdapter<Article, H
         fun onBind(article: Article) {
             itemViewPagerBinding.apply {
                 newsTitle.text = article.title
+                dateText.text = article.publishedAt?.let { textToDate(it) }
                 article.urlToImage?.let { image.setImage(it) }
             }
             itemView.setOnClickListener {
@@ -26,23 +28,14 @@ class HomeRecyclerAdapter(val listener: OnClickListener): ListAdapter<Article, H
         }
     }
 
-    class MyDiffUtil : DiffUtil.ItemCallback<Article>() {
-        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.urlToImage == newItem.urlToImage
-        }
-
-        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem == newItem
-        }
-
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Vh {
         return Vh(ItemViewPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    override fun getItemCount(): Int = list.size
+
     override fun onBindViewHolder(holder: Vh, position: Int) {
-        getItem(position)?.let { holder.onBind(it) }
+        holder.onBind(list[position])
     }
 
     interface OnClickListener {

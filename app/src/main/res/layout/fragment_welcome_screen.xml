@@ -42,7 +42,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="@dimen/_12ssp"
-        android:textColor="#7C82A1"
+        android:textColor="@color/mini_text_color"
         android:text="@string/welcome_title1"
         android:textAlignment="center"/>
 
@@ -55,7 +55,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="@dimen/_12ssp"
-        android:textColor="#7C82A1"
+        android:textColor="@color/mini_text_color"
         android:text="@string/welcome_title2"
         android:textAlignment="center"/>
 
@@ -69,7 +69,7 @@
         android:elevation="0dp"
         app:cardMaxElevation="0dp"
         app:cardElevation="0dp"
-        android:backgroundTint="#475AD7"
+        android:backgroundTint="@color/nuntium_color"
         app:cardCornerRadius="@dimen/_10sdp"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="@dimen/_45sdp" >

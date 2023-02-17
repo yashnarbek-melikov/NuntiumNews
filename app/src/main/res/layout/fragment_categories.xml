@@ -16,7 +16,7 @@
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
         android:text="Categories"
-        android:textColor="#333647"
+        android:textColor="@color/title_text_color"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
         android:text="Thousands of articles in each category"
-        android:textColor="#7C82A1"
+        android:textColor="@color/mini_text_color"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -68,7 +68,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🏈   Sports"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -92,7 +92,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🌞   Life"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -116,7 +116,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🐻   Animals"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -140,7 +140,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🍔   Food"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="📜   History"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -196,7 +196,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="⚖️   Politics"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -220,7 +220,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🎮   Gaming"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -244,7 +244,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🌴   Nature"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -268,7 +268,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="🎨   Art"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
@@ -292,7 +292,7 @@
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="center"
                     android:text="👗   Fashion"
-                    android:textColor="#666C8E"
+                    android:textColor="@color/card_text_color"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 

@@ -4,7 +4,7 @@ import android.content.Context
 import android.text.TextUtils
 
 class MySharedPreference(context: Context) {
-    private val appSharedPrefs = context.getSharedPreferences("have", Context.MODE_PRIVATE)
+    val appSharedPrefs = context.getSharedPreferences("have", Context.MODE_PRIVATE)
 
     fun setPreferences(key: String?, value: String?) {
         val prefsEditor = appSharedPrefs?.edit()

@@ -2,43 +2,38 @@ package com.example.nuntiumnews.ui.after
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
-import androidx.core.view.marginStart
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.nuntiumnews.R
 import com.example.nuntiumnews.adapters.recyclerview.HomeRecyclerAdapter
 import com.example.nuntiumnews.databinding.FragmentHomeBinding
 import com.example.nuntiumnews.databinding.ItemTabBinding
 import com.example.nuntiumnews.models.newsModel.Article
-import com.example.nuntiumnews.models.newsModel.Headlines
 import com.example.nuntiumnews.repository.NewsRepository
 import com.example.nuntiumnews.retrofit.ApiClient
 import com.example.nuntiumnews.utils.NewsResource
 import com.example.nuntiumnews.viewmodels.NewsViewModel
 import com.example.nuntiumnews.viewmodels.NewsViewModelFactory
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
+class HomeFragment : Fragment(), CoroutineScope {
 
-    private val binding by viewBinding(FragmentHomeBinding::bind)
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private lateinit var tabList: ArrayList<String>
     private lateinit var newsViewModel: NewsViewModel
     private lateinit var homeRecyclerAdapter: HomeRecyclerAdapter
+    private lateinit var list: ArrayList<Article>
     private lateinit var job: Job
     private var isCreate = false
-    val map = HashMap<String, Headlines>()
+    private var tabPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,12 +41,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
         getTabList()
         isCreate = true
 
+        list = ArrayList()
+
         newsViewModel = ViewModelProvider(
             this,
             NewsViewModelFactory(NewsRepository(ApiClient.apiService))
         )[NewsViewModel::class.java]
 
-        homeRecyclerAdapter = HomeRecyclerAdapter(object : HomeRecyclerAdapter.OnClickListener {
+        homeRecyclerAdapter = HomeRecyclerAdapter(list, object : HomeRecyclerAdapter.OnClickListener {
             override fun onImageClick(article: Article) {
                 val bundle = Bundle()
                 bundle.putSerializable("article", article)
@@ -61,6 +58,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
                 )
             }
         })
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,20 +79,17 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
             isCreate = false
         }
 
-        binding.apply {
-            recyclerView.adapter = homeRecyclerAdapter
-            readyTabs()
+        binding.swipe.setOnRefreshListener {
+            getViewModelInformation(tabList[binding.tabLayout.selectedTabPosition])
         }
 
-//        if(isCreate) {
-//            getViewModelInformation("sport")
-//        }
-//        else {
-//            getViewModelInformation(category?.let { tabList?.get(it) } ?: "sport")
-//        }
+        binding.apply {
+            recyclerView.adapter = homeRecyclerAdapter
+            readyTabs(tabPosition)
+        }
     }
 
-    private fun readyTabs() {
+    private fun readyTabs(tabPosition: Int) {
 
         tabList.forEach {
             binding.tabLayout.newTab().setText(it)
@@ -96,7 +99,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
         tabList.forEachIndexed { index, s ->
             val itemTabBinding = ItemTabBinding.inflate(layoutInflater)
             itemTabBinding.tv.text = s
-            if (index == 0) {
+            if (index == tabPosition) {
+                val tab = binding.tabLayout.getTabAt(index)
+                tab?.select()
                 itemTabBinding.tv.setTextColor(Color.WHITE)
                 itemTabBinding.card.setCardBackgroundColor(Color.parseColor("#475AD7"))
             } else {
@@ -111,12 +116,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
                 val itemTabBinding = ItemTabBinding.bind(tab?.customView!!)
                 itemTabBinding.tv.setTextColor(Color.WHITE)
                 itemTabBinding.card.setCardBackgroundColor(Color.parseColor("#475AD7"))
-                Log.d("LLASDLALSEFS", "onTabSelected: $map")
-                if(!map.containsKey(tabList[tab.position])) {
-                    getViewModelInformation(tabList[tab.position])
-                } else {
-                    homeRecyclerAdapter.submitList(map[tabList[tab.position]]?.articles)
-                }
+                binding.id.smoothScrollTo(0,0)
+                getViewModelInformation(tabList[tab.position])
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -130,6 +131,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
 
         })
 
+        val tabStart = (binding.tabLayout.getChildAt(0) as ViewGroup).getChildAt(0)
+        val tabStartParams = tabStart.layoutParams as ViewGroup.MarginLayoutParams
+        tabStartParams.setMargins(16, 0, 0, 0)
+        tabStart.requestLayout()
+
+        val tabEnd =
+            (binding.tabLayout.getChildAt(0) as ViewGroup).getChildAt(binding.tabLayout.tabCount - 1)
+        val tabEndParams = tabEnd.layoutParams as ViewGroup.MarginLayoutParams
+        tabEndParams.setMargins(0, 0, 45, 0)
+        tabEnd.requestLayout()
     }
 
     private fun getTabList() {
@@ -144,7 +155,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
         tabList.add("Art")
         tabList.add("History")
         tabList.add("Fashion")
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        job.cancel()
+        tabPosition = binding.tabLayout.selectedTabPosition
     }
 
     private fun getViewModelInformation(category: String) {
@@ -152,15 +168,29 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
             newsViewModel.getNews(category).collect {
                 when (it) {
                     is NewsResource.Loading -> {
+                        binding.shimmerLayout.visibility = View.VISIBLE
+                        binding.shimmerLayout.startShimmer()
+                        binding.errorText.visibility = View.GONE
+                        binding.recyclerView.visibility = View.GONE
                     }
 
                     is NewsResource.Error -> {
-                        Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+                        binding.swipe.isRefreshing = false
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
+                        binding.recyclerView.visibility = View.GONE
+                        binding.errorText.visibility = View.VISIBLE
+                        binding.errorText.text = it.message
                     }
 
                     is NewsResource.Success -> {
-                        it.headlines?.let { it1 -> map.put(category, it1) }
-                        homeRecyclerAdapter.submitList(it.headlines?.articles)
+                        binding.swipe.isRefreshing = false
+                        binding.errorText.visibility = View.GONE
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
+                        binding.recyclerView.visibility = View.VISIBLE
+                        homeRecyclerAdapter.list = it.headlines?.articles as ArrayList<Article>
+                        homeRecyclerAdapter.notifyDataSetChanged()
                     }
                 }
             }

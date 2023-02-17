@@ -6,14 +6,16 @@
 
     <androidx.cardview.widget.CardView
         android:layout_marginVertical="@dimen/_3sdp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/nuntium_color"
         android:id="@+id/card"
         app:cardCornerRadius="@dimen/_15sdp"
-        android:layout_width="@dimen/_75sdp"
-        android:layout_height="@dimen/_28sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:cardElevation="0dp">
 
         <TextView
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
             android:ellipsize="end"
             android:singleLine="true"
             android:id="@+id/tv"
