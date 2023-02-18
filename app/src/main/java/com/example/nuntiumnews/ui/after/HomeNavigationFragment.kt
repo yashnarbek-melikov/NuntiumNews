@@ -26,7 +26,6 @@ class HomeNavigationFragment : Fragment(R.layout.fragment_home_navigation) {
         bottomNavAdapter = BottomNavAdapter(this)
 
         activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
-        activity?.window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
         _binding?.apply {
             viewPager2.adapter = bottomNavAdapter

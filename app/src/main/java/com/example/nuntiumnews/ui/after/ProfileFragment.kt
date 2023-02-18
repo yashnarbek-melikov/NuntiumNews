@@ -1,10 +1,13 @@
 package com.example.nuntiumnews.ui.after
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.nuntiumnews.R
 import com.example.nuntiumnews.databinding.FragmentProfileBinding
@@ -35,11 +38,15 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.switchLayout.isChecked = mySharedPreference.getPreferences("isDark") == "1"
+        if(binding.switchLayout.isChecked) {
+            binding.darkLightText.text = "Light Mode"
+        } else {
+            binding.darkLightText.text = "Dark Mode"
+        }
 
         binding.switchLayout.setOnCheckedChangeListener { compoundButton, b ->
             if (b) {
                 ThemeHelper.applyTheme(ThemeHelper.darkMode)
-                activity?.window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                 mySharedPreference.setPreferences("isDark", "1")
             } else {
                 ThemeHelper.applyTheme(ThemeHelper.lightMode)
@@ -53,6 +60,9 @@ class ProfileFragment : Fragment() {
 
         binding.card2.setOnClickListener {
             findNavController().navigate(R.id.action_homeNavigationFragment_to_languageFragment)
+        }
+        binding.card3.setOnClickListener {
+            findNavController().navigate(R.id.action_homeNavigationFragment_to_categoriesFragment)
         }
     }
 }

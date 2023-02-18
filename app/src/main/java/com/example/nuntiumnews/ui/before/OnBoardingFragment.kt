@@ -37,7 +37,6 @@ class OnBoardingFragment : Fragment() {
     ): View? {
         _binding = FragmentOnBoardingBinding.inflate(inflater, container, false)
         activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
-        activity?.window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
         addImages()
 

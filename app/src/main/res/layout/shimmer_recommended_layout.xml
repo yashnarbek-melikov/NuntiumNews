@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:src="@drawable/news_placeholder"
+            android:src="@color/shimmer_card_color"
             android:id="@+id/imageNew"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -40,11 +40,10 @@
         <TextView
             android:fontFamily="@font/sf_pro_text"
             android:id="@+id/name_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_80sdp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:text="UI/UX Designawefsefsergse"
-            android:textColor="@color/mini_text_color"
+            android:background="@color/shimmer_card_color"
             android:textSize="@dimen/_11ssp" />
 
         <TextView
@@ -52,11 +51,10 @@
             android:textStyle="bold"
             android:fontFamily="@font/sf_pro_text"
             android:id="@+id/news_title"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:text="A Simple Trick For Creating Color Palettes Quickly"
-            android:textColor="@color/title_text_color"
+            android:background="@color/shimmer_card_color"
             android:textSize="@dimen/_12ssp" />
 
     </LinearLayout>

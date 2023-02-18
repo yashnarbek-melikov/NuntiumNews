@@ -86,7 +86,7 @@ class LanguageFragment : Fragment(), View.OnClickListener {
 
     private fun setCardBackground(value: String, cardView: CardView, textView: TextView, imageView: ImageView) {
         val nuntiumColor = ContextCompat.getColor(requireContext(), R.color.nuntium_color)
-        val textWhite = ContextCompat.getColor(requireContext(), R.color.white)
+        val textWhite = ContextCompat.getColor(requireContext(), R.color.card_background_color)
 
         if (mySharedPreference?.getPreferences("key") != null) {
             if (mySharedPreference?.getPreferences("key") == value) {
@@ -113,17 +113,17 @@ class LanguageFragment : Fragment(), View.OnClickListener {
         imageView: ImageView
     ) {
         val nuntiumColor = ContextCompat.getColor(requireContext(), R.color.nuntium_color)
-        val textWhite = ContextCompat.getColor(requireContext(), R.color.white)
+        val textWhite = ContextCompat.getColor(requireContext(), R.color.card_background_color)
         cardView.setCardBackgroundColor(nuntiumColor)
-        if (mySharedPreference?.getPreferences("key") != null) {
-            if (mySharedPreference?.getPreferences("key") != value) {
-                mySharedPreference?.setPreferences("key", value)
+        if (mySharedPreference.getPreferences("key") != null) {
+            if (mySharedPreference.getPreferences("key") != value) {
+                mySharedPreference.setPreferences("key", value)
                 cardView.setCardBackgroundColor(nuntiumColor)
                 textView.setTextColor(textWhite)
                 imageView.visibility = View.VISIBLE
             }
         } else {
-            mySharedPreference?.setPreferences("key", value)
+            mySharedPreference.setPreferences("key", value)
             cardView.setCardBackgroundColor(nuntiumColor)
             textView.setTextColor(textWhite)
             imageView.visibility = View.VISIBLE

@@ -53,7 +53,7 @@ class SelectTopicFragment : Fragment(), View.OnClickListener {
             if (all.values.isNotEmpty()) {
                 findNavController().navigate(R.id.action_selectTopicFragment_to_homeNavigationFragment)
             } else {
-                Toast.makeText(requireContext(), "Choose topic", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Choose Topic", Toast.LENGTH_SHORT).show()
             }
         }
         binding.category1.setOnClickListener(this)
@@ -151,8 +151,8 @@ class SelectTopicFragment : Fragment(), View.OnClickListener {
         val textColor = ContextCompat.getColor(requireContext(), R.color.card_text_color)
         val textWhite = ContextCompat.getColor(requireContext(), R.color.white)
 
-        if (mySharedPreference?.getPreferences(key) != null) {
-            if (mySharedPreference?.getPreferences(key) == value) {
+        if (mySharedPreference.getPreferences(key) != null) {
+            if (mySharedPreference.getPreferences(key) == value) {
                 cardView.setCardBackgroundColor(nuntiumColor)
                 textView.setTextColor(textWhite)
             } else {
@@ -177,18 +177,18 @@ class SelectTopicFragment : Fragment(), View.OnClickListener {
         val textColor = ContextCompat.getColor(requireContext(), R.color.card_text_color)
         val textWhite = ContextCompat.getColor(requireContext(), R.color.white)
 
-        if (mySharedPreference?.getPreferences(key) != null) {
-            if (mySharedPreference?.getPreferences(key) == value) {
-                mySharedPreference?.setPreferences(key, null)
+        if (mySharedPreference.getPreferences(key) != null) {
+            if (mySharedPreference.getPreferences(key) == value) {
+                mySharedPreference.setPreferences(key, null)
                 cardView.setCardBackgroundColor(cardColor)
                 textView.setTextColor(textColor)
             } else {
-                mySharedPreference?.setPreferences(key, value)
+                mySharedPreference.setPreferences(key, value)
                 cardView.setCardBackgroundColor(nuntiumColor)
                 textView.setTextColor(textWhite)
             }
         } else {
-            mySharedPreference?.setPreferences(key, value)
+            mySharedPreference.setPreferences(key, value)
             cardView.setCardBackgroundColor(nuntiumColor)
             textView.setTextColor(textWhite)
         }

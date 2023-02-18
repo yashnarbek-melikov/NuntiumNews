@@ -101,5 +101,13 @@
         <action
             android:id="@+id/action_homeNavigationFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
+        <action
+            android:id="@+id/action_homeNavigationFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/recommendedFragment"
+        android:name="com.example.nuntiumnews.ui.after.RecommendedFragment"
+        android:label="fragment_recommended"
+        tools:layout="@layout/fragment_recommended" />
 </navigation>

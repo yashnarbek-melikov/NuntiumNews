@@ -16,7 +16,7 @@
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
         android:text="Settings"
-        android:textColor="#333647"
+        android:textColor="@color/title_text_color"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -39,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/title">
 
         <TextView
+            android:id="@+id/dark_light_text"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,6 +84,42 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:fontFamily="@font/sf_pro_text"
             android:text="Language"
+            android:textColor="@color/card_text_color"
+            android:textSize="@dimen/_12ssp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:src="@drawable/ic_right" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:foreground="?selectableItemBackground"
+        android:id="@+id/card3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:cardBackgroundColor="@color/search_card_color"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:elevation="0dp"
+        app:cardCornerRadius="@dimen/_12sdp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card2">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/sf_pro_text"
+            android:text="Selected Categories"
             android:textColor="@color/card_text_color"
             android:textSize="@dimen/_12ssp" />
 

@@ -11,7 +11,8 @@ import com.example.nuntiumnews.models.newsModel.Article
 import com.example.nuntiumnews.utils.setImage
 import com.example.nuntiumnews.utils.textToDate
 
-class HomeRecyclerAdapter(var list: ArrayList<Article>, val listener: OnClickListener): RecyclerView.Adapter<HomeRecyclerAdapter.Vh>() {
+class HomeRecyclerAdapter(var list: ArrayList<Article>, val listener: OnClickListener) :
+    RecyclerView.Adapter<HomeRecyclerAdapter.Vh>() {
 
     inner class Vh(var itemViewPagerBinding: ItemViewPagerBinding) :
         RecyclerView.ViewHolder(itemViewPagerBinding.root) {

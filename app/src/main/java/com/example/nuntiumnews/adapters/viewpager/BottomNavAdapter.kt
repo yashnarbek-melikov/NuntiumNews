@@ -2,10 +2,7 @@ package com.example.nuntiumnews.adapters.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.nuntiumnews.ui.after.BookmarkFragment
-import com.example.nuntiumnews.ui.after.CategoriesFragment
-import com.example.nuntiumnews.ui.after.HomeFragment
-import com.example.nuntiumnews.ui.after.ProfileFragment
+import com.example.nuntiumnews.ui.after.*
 
 class BottomNavAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
@@ -17,7 +14,7 @@ class BottomNavAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
                 HomeFragment()
             }
             1 -> {
-                CategoriesFragment()
+                RecommendedFragment()
             }
             2 -> {
                 BookmarkFragment()

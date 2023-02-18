@@ -38,6 +38,7 @@ class SplashFragment : Fragment() {
         activity?.window?.statusBarColor =
             ContextCompat.getColor(requireContext(), R.color.nuntium_color)
 
+
         lifecycleScope.launchWhenStarted {
             delay(2000)
             val all = requireContext().getSharedPreferences("have", Context.MODE_PRIVATE).all

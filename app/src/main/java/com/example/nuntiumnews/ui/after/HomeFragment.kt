@@ -23,10 +23,9 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class HomeFragment : Fragment(), CoroutineScope {
+class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
 
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
     private lateinit var tabList: ArrayList<String>
     private lateinit var newsViewModel: NewsViewModel
     private lateinit var homeRecyclerAdapter: HomeRecyclerAdapter
@@ -59,37 +58,30 @@ class HomeFragment : Fragment(), CoroutineScope {
             }
         })
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val binding = FragmentHomeBinding.bind(view)
+        _binding = binding
 
         job = Job()
 
         if (isCreate) {
-            getViewModelInformation("sport")
+            getViewModelInformation(binding, "sports")
             isCreate = false
         }
 
         binding.swipe.setOnRefreshListener {
-            getViewModelInformation(tabList[binding.tabLayout.selectedTabPosition])
+            getViewModelInformation(binding, tabList[binding.tabLayout.selectedTabPosition])
         }
 
         binding.apply {
             recyclerView.adapter = homeRecyclerAdapter
-            readyTabs(tabPosition)
+            readyTabs(binding, tabPosition)
         }
     }
 
-    private fun readyTabs(tabPosition: Int) {
+    private fun readyTabs(binding: FragmentHomeBinding, tabPosition: Int) {
 
         tabList.forEach {
             binding.tabLayout.newTab().setText(it)
@@ -117,7 +109,7 @@ class HomeFragment : Fragment(), CoroutineScope {
                 itemTabBinding.tv.setTextColor(Color.WHITE)
                 itemTabBinding.card.setCardBackgroundColor(Color.parseColor("#475AD7"))
                 binding.id.smoothScrollTo(0,0)
-                getViewModelInformation(tabList[tab.position])
+                getViewModelInformation(binding, tabList[tab.position])
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -145,7 +137,7 @@ class HomeFragment : Fragment(), CoroutineScope {
 
     private fun getTabList() {
         tabList = ArrayList()
-        tabList.add("Sport")
+        tabList.add("Sports")
         tabList.add("Politics")
         tabList.add("Life")
         tabList.add("Gaming")
@@ -159,11 +151,12 @@ class HomeFragment : Fragment(), CoroutineScope {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        tabPosition = _binding?.tabLayout?.selectedTabPosition ?: 0
         job.cancel()
-        tabPosition = binding.tabLayout.selectedTabPosition
+        _binding = null
     }
 
-    private fun getViewModelInformation(category: String) {
+    private fun getViewModelInformation(binding: FragmentHomeBinding, category: String) {
         lifecycleScope.launch {
             newsViewModel.getNews(category).collect {
                 when (it) {

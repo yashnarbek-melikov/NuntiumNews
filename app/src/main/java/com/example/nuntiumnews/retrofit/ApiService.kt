@@ -11,6 +11,6 @@ interface ApiService {
     suspend fun getListData(
         @Query("q") category: String,
         @Query("pageSize") pageSize: Int = 20,
-        @Query("apiKey") apiKey: String = "41e12e0982d74e94b0f889dcf7b4362c"
+        @Query("apiKey") apiKey: String = "31a3888bc30d42e2ac637ee0258c14ed"
     ): Response<Headlines>
 }
