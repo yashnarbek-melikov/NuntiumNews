@@ -73,7 +73,6 @@ class BookmarkFragment : Fragment(R.layout.fragment_bookmark) {
         savedList.clear()
         savedList.addAll(saveViewModel.getAllArticle() as ArrayList<Article>)
         savedRecyclerAdapter.notifyDataSetChanged()
-        Toast.makeText(requireContext(), "onResume", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

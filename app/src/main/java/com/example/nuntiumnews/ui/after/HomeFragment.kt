@@ -43,8 +43,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
-
-        getTabList()
         isCreate = true
 
         list = ArrayList()
@@ -72,6 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
         val binding = FragmentHomeBinding.bind(view)
         _binding = binding
 
+        getTabList()
         job = Job()
 
         if (isCreate) {
