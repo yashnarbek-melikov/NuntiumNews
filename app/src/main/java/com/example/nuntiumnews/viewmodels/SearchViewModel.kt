@@ -11,15 +11,14 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class NewsViewModel @Inject constructor(private val newsRepository: NewsRepository) :
-    ViewModel() {
+class SearchViewModel @Inject constructor(private val newsRepository: NewsRepository): ViewModel() {
 
-    fun getNews(category: String): StateFlow<NewsResource> {
+    fun getSearch(category: String): StateFlow<NewsResource> {
 
         val stateFlow = MutableStateFlow<NewsResource>(NewsResource.Loading)
 
         viewModelScope.launch(Dispatchers.IO) {
-            newsRepository.getNewsData(category).catch {
+            newsRepository.getSearchData(category).catch {
                 stateFlow.emit(NewsResource.Error(it.message ?: ""))
             }.collect {
                 if (it.isSuccessful) {

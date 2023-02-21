@@ -1,26 +1,22 @@
 package com.example.nuntiumnews.ui.after
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.nuntiumnews.App
 import com.example.nuntiumnews.R
 import com.example.nuntiumnews.adapters.recyclerview.RecommendedRecyclerAdapter
+import com.example.nuntiumnews.database.entity.Article
 import com.example.nuntiumnews.databinding.FragmentRecommendedBinding
-import com.example.nuntiumnews.models.newsModel.Article
-import com.example.nuntiumnews.repository.NewsRepository
-import com.example.nuntiumnews.retrofit.ApiClient
 import com.example.nuntiumnews.utils.MySharedPreference
 import com.example.nuntiumnews.utils.NewsResource
 import com.example.nuntiumnews.viewmodels.RecommendedViewModel
-import com.example.nuntiumnews.viewmodels.RecommendedViewModelFactory
 import kotlinx.coroutines.*
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
 class RecommendedFragment : Fragment(R.layout.fragment_recommended), CoroutineScope {
@@ -30,24 +26,21 @@ class RecommendedFragment : Fragment(R.layout.fragment_recommended), CoroutineSc
 
     private lateinit var shuffleList: ArrayList<Article>
     private lateinit var recommendedList: ArrayList<String>
-    private lateinit var recommendedViewModel: RecommendedViewModel
+    @Inject
+    lateinit var recommendedViewModel: RecommendedViewModel
     private lateinit var mySharedPreference: MySharedPreference
 
     private var isCreate = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        App.appComponent.inject(this)
 
         isCreate = true
         shuffleList = ArrayList()
         recommendedList = ArrayList()
 
         mySharedPreference = MySharedPreference(requireContext())
-
-        recommendedViewModel = ViewModelProvider(
-            this,
-            RecommendedViewModelFactory(NewsRepository(ApiClient.apiService))
-        )[RecommendedViewModel::class.java]
 
         recommendedRecyclerAdapter =
             RecommendedRecyclerAdapter(
@@ -86,6 +79,23 @@ class RecommendedFragment : Fragment(R.layout.fragment_recommended), CoroutineSc
         if (isCreate) {
             loadUi(recommendedList)
             isCreate = false
+        }
+
+        binding.searchEt.setOnEditorActionListener { textView, i, keyEvent ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                if(textView.text.isEmpty()) {
+                    Toast.makeText(requireContext(), "enter text", Toast.LENGTH_SHORT).show()
+                } else {
+                    val bundle = Bundle()
+                    bundle.putString("text", textView.text.toString())
+                    findNavController().navigate(
+                        R.id.action_homeNavigationFragment_to_searchFragment,
+                        bundle
+                    )
+                    binding.searchEt.setText("")
+                }
+            }
+            return@setOnEditorActionListener true
         }
 
         binding.swipe.setOnRefreshListener {
@@ -139,7 +149,6 @@ class RecommendedFragment : Fragment(R.layout.fragment_recommended), CoroutineSc
     override fun onDestroyView() {
         super.onDestroyView()
         job.cancel()
-        recommendedList.clear()
         _binding = null
     }
 }

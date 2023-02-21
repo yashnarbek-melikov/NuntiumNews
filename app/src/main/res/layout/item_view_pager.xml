@@ -43,7 +43,6 @@
                 android:layout_marginTop="@dimen/_6sdp"
                 android:ellipsize="end"
                 android:fontFamily="@font/sf_pro_text"
-                android:text="estserterwetessertertwafeasfseesrgegesgsergesrgrdhtrthtfhrdhtdrhdrsgresgdsfsefressergedgdgdr"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11ssp"
                 android:textStyle="bold"
@@ -64,6 +63,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/save_image"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,7 +79,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_5sdp"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:text="18:39 / 21.02.2023"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

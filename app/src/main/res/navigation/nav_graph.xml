@@ -104,10 +104,22 @@
         <action
             android:id="@+id/action_homeNavigationFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_homeNavigationFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/recommendedFragment"
         android:name="com.example.nuntiumnews.ui.after.RecommendedFragment"
         android:label="fragment_recommended"
         tools:layout="@layout/fragment_recommended" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.nuntiumnews.ui.after.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
 </navigation>

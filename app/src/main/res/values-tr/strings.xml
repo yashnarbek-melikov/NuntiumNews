@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nuntium News</string>
+    <string name="nuntium">Nuntium</string>
+    <string name="next">Sonraki</string>
+    <string name="get_started">Başlamak</string>
+    <string name="browse">Araştır</string>
+    <string name="search">Arama</string>
+    <string name="settings">Ayarlar</string>
+    <string name="dark_mode">Karanlık mod</string>
+    <string name="categories">Kategoriler</string>
+    <string name="cat_des">Her kategoride binlerce makale</string>
+    <string name="bookmarks">Yer imleri</string>
+    <string name="book_des">Kitaplığa kaydedilen makaleler</string>
+    <string name="no_saved_des_1">Henüz herhangi bir makale</string>
+    <string name="no_saved_des_2">kaydetmediniz. Şimdi okumaya ve yer</string>
+    <string name="no_saved_des_3">imlerine eklemeye başlayın</string>
+    <string name="news_title">BOE valisi, kripto yatırımcılarının tüm paralarını kaybetmeye hazır olması gerektiğini söylüyor</string>
+    <string name="news_author">Ryan Browne</string>
+    <string name="rec_for_you">Tavsiye</string>
+    <string name="see_all">Hepsi</string>
+    <string name="home_des">Bu dünyaya ait şeyleri keşfedin</string>
+    <string name="language">Dil</string>
+    <string name="english">Ingilizce</string>
+    <string name="russian">Rusça</string>
+    <string name="german">Almanca</string>
+    <string name="turkish">Türk</string>
+    <string name="first_tv">Ilk bilmek</string>
+    <string name="second_tv">Tüm haberler tek bir yerde, son haberleri ilk öğrenen siz olun</string>
+    <string name="top_tv">Favori konularınızı seçin</string>
+    <string name="bottom_tv">Sizin için daha iyi haberler önermemize izin vermek için favori konularınızdan bazılarını seçin</string>
+
+    <string name="results">Sonuçlar</string>
+
+    <string name="sports">🏈   Spor</string>
+    <string name="politics">⚖️   Siyaset</string>
+    <string name="life">🌞   Hayat</string>
+    <string name="gaming">🎮   Oyun</string>
+    <string name="animals">🐻   Hayvanlar</string>
+    <string name="nature">🌴   Doğa</string>
+    <string name="food">🍔   Yiyecek</string>
+    <string name="art">🎨   Sanat</string>
+    <string name="history">📜   Tarih</string>
+    <string name="fashion">👗   Moda</string>
+
+    <string name="sports_cat">Spor</string>
+    <string name="politics_cat">Siyaset</string>
+    <string name="life_cat">Hayat</string>
+    <string name="gaming_cat">Oyun</string>
+    <string name="animals_cat">Hayvanlar</string>
+    <string name="nature_cat">Doğa</string>
+    <string name="food_cat">Yiyecek</string>
+    <string name="art_cat">Sanat</string>
+    <string name="history_cat">Tarih</string>
+    <string name="fashion_cat">Moda</string>
+
+    <string name="change">Değiştirmek</string>
+
+    <string name="no_internet">İnternet bağlantısı yok</string>
+    <string name="light_mode">Işık Modu</string>
+    <string name="selected_categories">Seçili Kategoriler</string>
+    <string name="recommended_news">Sizin için önerilen haberler</string>
+
+    <string name="boarding_title">Fast and reliable</string>
+
+    <string name="page1_desc_1">All news in one place, be the</string>
+    <string name="page1_desc_2">first to know last news</string>
+    <string name="page2_desc_1">Multifunctional app with</string>
+    <string name="page2_desc_2">support for 32 languages</string>
+    <string name="page3_desc_1">Fast news only here, already</string>
+    <string name="page3_desc_2">new news blinked.</string>
+
+    <string name="welcome_title1">All the news of the world in</string>
+    <string name="welcome_title2">one app. Enjoy it</string>
+</resources>

@@ -1,14 +1,10 @@
 package com.example.nuntiumnews.adapters.recyclerview
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.nuntiumnews.database.entity.Article
 import com.example.nuntiumnews.databinding.ItemRecyclerSavedBinding
-import com.example.nuntiumnews.databinding.ItemViewPagerBinding
-import com.example.nuntiumnews.models.newsModel.Article
 import com.example.nuntiumnews.utils.setImage
 import com.example.nuntiumnews.utils.textToDate
 
@@ -21,7 +17,8 @@ class RecommendedRecyclerAdapter(var list: ArrayList<Article>, val listener: OnC
         fun onBind(newsModel: Article) {
             itemRecyclerSavedBinding.apply {
                 newsModel.urlToImage?.let { imageNew.setImage(it) }
-                nameTv.text = newsModel.source?.name
+
+                nameTv.text = textToDate(newsModel.publishedAt)
                 newsTitle.text = newsModel.title
             }
             itemView.setOnClickListener {

@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RecommendedViewModel(private val newsRepository: NewsRepository) :
+class RecommendedViewModel @Inject constructor(private val newsRepository: NewsRepository) :
     ViewModel() {
 
     fun getRecommendedNews(categoryList: List<String>): StateFlow<NewsResource> {

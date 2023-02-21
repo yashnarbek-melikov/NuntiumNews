@@ -2,33 +2,39 @@ package com.example.nuntiumnews.ui.after
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.nuntiumnews.App
 import com.example.nuntiumnews.R
 import com.example.nuntiumnews.adapters.recyclerview.HomeRecyclerAdapter
+import com.example.nuntiumnews.database.entity.Article
 import com.example.nuntiumnews.databinding.FragmentHomeBinding
 import com.example.nuntiumnews.databinding.ItemTabBinding
-import com.example.nuntiumnews.models.newsModel.Article
-import com.example.nuntiumnews.repository.NewsRepository
-import com.example.nuntiumnews.retrofit.ApiClient
 import com.example.nuntiumnews.utils.NewsResource
 import com.example.nuntiumnews.viewmodels.NewsViewModel
-import com.example.nuntiumnews.viewmodels.NewsViewModelFactory
+import com.example.nuntiumnews.viewmodels.SaveViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.*
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
 class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var tabList: ArrayList<String>
-    private lateinit var newsViewModel: NewsViewModel
     private lateinit var homeRecyclerAdapter: HomeRecyclerAdapter
+
+    @Inject
+    lateinit var newsViewModel: NewsViewModel
+
+    @Inject
+    lateinit var savedViewModel: SaveViewModel
+
     private lateinit var list: ArrayList<Article>
     private lateinit var job: Job
     private var isCreate = false
@@ -36,28 +42,30 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        App.appComponent.inject(this)
 
         getTabList()
         isCreate = true
 
         list = ArrayList()
 
-        newsViewModel = ViewModelProvider(
-            this,
-            NewsViewModelFactory(NewsRepository(ApiClient.apiService))
-        )[NewsViewModel::class.java]
-
-        homeRecyclerAdapter = HomeRecyclerAdapter(list, object : HomeRecyclerAdapter.OnClickListener {
-            override fun onImageClick(article: Article) {
-                val bundle = Bundle()
-                bundle.putSerializable("article", article)
-                findNavController().navigate(
-                    R.id.action_homeNavigationFragment_to_articleFragment,
-                    bundle
-                )
-            }
-        })
+        homeRecyclerAdapter =
+            HomeRecyclerAdapter(
+                savedViewModel,
+                list,
+                requireContext(),
+                object : HomeRecyclerAdapter.OnClickListener {
+                    override fun onImageClick(article: Article) {
+                        val bundle = Bundle()
+                        bundle.putSerializable("article", article)
+                        findNavController().navigate(
+                            R.id.action_homeNavigationFragment_to_articleFragment,
+                            bundle
+                        )
+                    }
+                })
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -73,6 +81,23 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
 
         binding.swipe.setOnRefreshListener {
             getViewModelInformation(binding, tabList[binding.tabLayout.selectedTabPosition])
+        }
+
+        binding.searchEt.setOnEditorActionListener { textView, i, keyEvent ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                if (textView.text.isEmpty()) {
+                    Toast.makeText(requireContext(), "enter text", Toast.LENGTH_SHORT).show()
+                } else {
+                    val bundle = Bundle()
+                    bundle.putString("text", textView.text.toString())
+                    findNavController().navigate(
+                        R.id.action_homeNavigationFragment_to_searchFragment,
+                        bundle
+                    )
+                    binding.searchEt.setText("")
+                }
+            }
+            return@setOnEditorActionListener true
         }
 
         binding.apply {
@@ -108,7 +133,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
                 val itemTabBinding = ItemTabBinding.bind(tab?.customView!!)
                 itemTabBinding.tv.setTextColor(Color.WHITE)
                 itemTabBinding.card.setCardBackgroundColor(Color.parseColor("#475AD7"))
-                binding.id.smoothScrollTo(0,0)
+                binding.id.smoothScrollTo(0, 0)
                 getViewModelInformation(binding, tabList[tab.position])
             }
 
@@ -137,16 +162,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), CoroutineScope {
 
     private fun getTabList() {
         tabList = ArrayList()
-        tabList.add("Sports")
-        tabList.add("Politics")
-        tabList.add("Life")
-        tabList.add("Gaming")
-        tabList.add("Animal")
-        tabList.add("Nature")
-        tabList.add("Food")
-        tabList.add("Art")
-        tabList.add("History")
-        tabList.add("Fashion")
+        tabList.add(getString(R.string.sports_cat))
+        tabList.add(getString(R.string.politics_cat))
+        tabList.add(getString(R.string.life_cat))
+        tabList.add(getString(R.string.gaming_cat))
+        tabList.add(getString(R.string.animals_cat))
+        tabList.add(getString(R.string.nature_cat))
+        tabList.add(getString(R.string.food_cat))
+        tabList.add(getString(R.string.art_cat))
+        tabList.add(getString(R.string.history_cat))
+        tabList.add(getString(R.string.fashion_cat))
     }
 
     override fun onDestroyView() {

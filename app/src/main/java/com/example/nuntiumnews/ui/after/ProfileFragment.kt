@@ -39,9 +39,9 @@ class ProfileFragment : Fragment() {
 
         binding.switchLayout.isChecked = mySharedPreference.getPreferences("isDark") == "1"
         if(binding.switchLayout.isChecked) {
-            binding.darkLightText.text = "Light Mode"
+            binding.darkLightText.text = getString(R.string.light_mode)
         } else {
-            binding.darkLightText.text = "Dark Mode"
+            binding.darkLightText.text = getString(R.string.dark_mode)
         }
 
         binding.switchLayout.setOnCheckedChangeListener { compoundButton, b ->

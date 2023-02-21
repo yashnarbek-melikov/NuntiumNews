@@ -43,7 +43,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:text="UI/UX Designawefsefsergse"
             android:textColor="@color/mini_text_color"
             android:textSize="@dimen/_11ssp" />
 
@@ -55,7 +54,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:text="A Simple Trick For Creating Color Palettes Quickly"
             android:textColor="@color/title_text_color"
             android:textSize="@dimen/_12ssp" />
 

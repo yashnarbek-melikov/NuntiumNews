@@ -10,6 +10,7 @@ import com.example.nuntiumnews.R
 import com.example.nuntiumnews.databinding.ActivityMainBinding
 import com.example.nuntiumnews.utils.MySharedPreference
 import com.example.nuntiumnews.utils.ThemeHelper
+import com.yariksoffice.lingver.Lingver
 
 class MainActivity : AppCompatActivity() {
 

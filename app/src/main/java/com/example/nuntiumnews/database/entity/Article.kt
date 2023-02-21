@@ -1,14 +1,17 @@
-package com.example.nuntiumnews.models.newsModel
+package com.example.nuntiumnews.database.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
+@Entity
 data class Article(
     val author: String?,
     val content: String?,
     val description: String?,
-    val publishedAt: String?,
-    val source: Source?,
+    @PrimaryKey
+    val publishedAt: String,
     val title: String?,
     val url: String?,
     val urlToImage: String?
-) : Serializable
+): Serializable

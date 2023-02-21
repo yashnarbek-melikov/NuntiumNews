@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nuntium News</string>
+    <string name="nuntium">Nuntium</string>
+    <string name="next">Nächste</string>
+    <string name="get_started">Loslegen</string>
+    <string name="browse">Durchsuche</string>
+    <string name="search">Suche</string>
+    <string name="settings">Einstellungen</string>
+    <string name="dark_mode">Dunkler Modus</string>
+    <string name="categories">Kategorien</string>
+    <string name="cat_des">Tausende von Artikeln in jeder Kategorie</string>
+    <string name="bookmarks">Lesezeichen</string>
+    <string name="book_des">Gespeicherte Artikel in der Bibliothek</string>
+    <string name="no_saved_des_1">Sie haben noch keine Artikel</string>
+    <string name="no_saved_des_2">gespeichert. Fangen Sie jetzt an,</string>
+    <string name="no_saved_des_3">sie zu lesen und zu bookmarken</string>
+    <string name="news_title">Krypto-Investoren sollten bereit sein, ihr gesamtes Geld zu verlieren, sagt der Gouverneur der BOE</string>
+    <string name="news_author">Ryan Browne</string>
+    <string name="rec_for_you">Empfohlen</string>
+    <string name="see_all">Alles</string>
+    <string name="home_des">Entdecken Sie Dinge dieser Welt</string>
+    <string name="language">Sprache</string>
+    <string name="english">Englisch</string>
+    <string name="russian">Russisch</string>
+    <string name="german">Deutsch</string>
+    <string name="turkish">Türkisch</string>
+    <string name="first_tv">Zuerst wissen</string>
+    <string name="second_tv">Alle Neuigkeiten zusammen, erfahre als Erster von den neuesten Nachrichten</string>
+    <string name="top_tv">Wählen Sie Ihre Lieblingsthemen aus</string>
+    <string name="bottom_tv">Wählen Sie einige Ihrer Lieblingsthemen aus, damit wir Ihnen bessere Nachrichten vorschlagen können</string>
+
+    <string name="results">Ergebnisse</string>
+
+    <string name="sports">🏈   Sport</string>
+    <string name="politics">⚖️   Politik</string>
+    <string name="life">🌞   Leben</string>
+    <string name="gaming">🎮   Spielen</string>
+    <string name="animals">🐻   Tiere</string>
+    <string name="nature">🌴   Natur</string>
+    <string name="food">🍔   Essen</string>
+    <string name="art">🎨   Kunst</string>
+    <string name="history">📜   Geschichte</string>
+    <string name="fashion">👗   Mode</string>
+
+    <string name="sports_cat">Sport</string>
+    <string name="politics_cat">Politik</string>
+    <string name="life_cat">Leben</string>
+    <string name="gaming_cat">Spielen</string>
+    <string name="animals_cat">Tiere</string>
+    <string name="nature_cat">Natur</string>
+    <string name="food_cat">Essen</string>
+    <string name="art_cat">Kunst</string>
+    <string name="history_cat">Geschichte</string>
+    <string name="fashion_cat">Mode</string>
+
+    <string name="change">Ändern</string>
+
+    <string name="no_internet">Keine Internetverbindung</string>
+    <string name="light_mode">Lichtmodus</string>
+    <string name="selected_categories">Ausgewählte Kategorien</string>
+    <string name="recommended_news">Empfohlene Nachrichten für Sie</string>
+
+    <string name="boarding_title">Schnell und zuverlässig</string>
+
+    <string name="page1_desc_1">Alle Neuigkeiten an einem Ort, erfahren</string>
+    <string name="page1_desc_2">Sie als Erster die letzten Neuigkeiten</string>
+    <string name="page2_desc_1">Multifunktionale App mit Unterstützung</string>
+    <string name="page2_desc_2">für 32 Sprachen</string>
+    <string name="page3_desc_1">Schnelle Nachrichten nur hier, schon</string>
+    <string name="page3_desc_2">blitzten neue Nachrichten auf.</string>
+
+    <string name="welcome_title1">Alle Nachrichten der Welt in</string>
+    <string name="welcome_title2">einer App. Genießen Sie es</string>
+</resources>

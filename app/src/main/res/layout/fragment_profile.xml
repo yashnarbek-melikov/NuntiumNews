@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_16sdp"
         android:fontFamily="@font/sf_pro_text"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textColor="@color/title_text_color"
         android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
@@ -46,7 +46,7 @@
             android:layout_gravity="start|center"
             android:layout_marginStart="@dimen/_15sdp"
             android:fontFamily="@font/sf_pro_text"
-            android:text="Light mode"
+            android:text="@string/light_mode"
             android:textColor="@color/card_text_color"
             android:textSize="@dimen/_12ssp" />
 
@@ -83,7 +83,7 @@
             android:layout_gravity="start|center"
             android:layout_marginStart="@dimen/_15sdp"
             android:fontFamily="@font/sf_pro_text"
-            android:text="Language"
+            android:text="@string/language"
             android:textColor="@color/card_text_color"
             android:textSize="@dimen/_12ssp" />
 
@@ -119,7 +119,7 @@
             android:layout_gravity="start|center"
             android:layout_marginStart="@dimen/_15sdp"
             android:fontFamily="@font/sf_pro_text"
-            android:text="Selected Categories"
+            android:text="@string/selected_categories"
             android:textColor="@color/card_text_color"
             android:textSize="@dimen/_12ssp" />
 
